@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Solver</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px;
+        }
+        td {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #000;
+            position: relative;
+        }
+        input {
+            width: 35px;
+            height: 35px;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #solve-btn {
+            background-color: #4CAF50;
+        }
+        #solve-btn:hover {
+            background-color: #45a049;
+        }
+        #reset-btn {
+            background-color: #f44336;
+        }
+        #reset-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        /* ✅ เส้นหนาทุก 3x3 */
+        td:nth-child(3n) {
+            border-right: 3px solid black;
+        }
+        tr:nth-child(3n) td {
+            border-bottom: 3px solid black;
+        }
+        td:first-child {
+            border-left: 3px solid black;
+        }
+        tr:first-child td {
+            border-top: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sudoku Solver</h1>
+    <form id="sudoku-form">
+        <table>
+            {% for i in range(9) %}
+                <tr>
+                    {% for j in range(9) %}
+                        <td>
+                            <input type="text" id="cell_{{ i }}_{{ j }}" maxlength="1" pattern="[1-9]" />
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        <button type="submit" id="solve-btn">Solve Sudoku</button>
+        <button type="button" id="reset-btn">Reset</button> <!-- ปุ่ม Reset -->
+    </form>
+
+    <script>
+        document.getElementById("sudoku-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let puzzle = [];
+
+            for (let i = 0; i < 9; i++) {
+                for (let j = 0; j < 9; j++) {
+                    let cell = document.getElementById(`cell_${i}_${j}`);
+                    let value = cell.value.trim();
+                    puzzle.push(value ? parseInt(value) : 0);
+                }
+            }
+
+            fetch("/solve", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ puzzle: puzzle })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.solution) {
+                    for (let i = 0; i < 9; i++) {
+                        for (let j = 0; j < 9; j++) {
+                            let cell = document.getElementById(`cell_${i}_${j}`);
+                            if (!cell.value) {
+                                cell.value = data.solution[i][j]; // เติมเลขที่ขาด
+                            }
+                        }
+                    }
+                } else {
+                    alert("Error solving Sudoku!");
+                }
+            });
+        });
+
+        // ✅ ฟังก์ชัน Reset ตาราง
+        document.getElementById("reset-btn").addEventListener("click", function() {
+            for (let i = 0; i < 9; i++) {
+                for (let j = 0; j < 9; j++) {
+                    document.getElementById(`cell_${i}_${j}`).value = "";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
