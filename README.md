@@ -74,7 +74,7 @@ python train_model.py
 ##  โครงสร้างไฟล์
 
 ```
-📂 Sudoku-Solver
+📂 Sudoku
 ├── app.py               # ไฟล์ Flask Backend
 ├── train_model.py       # ไฟล์ฝึกโมเดลใหม่
 ├── sudoku_model.h5      # โมเดลที่ถูกฝึกแล้ว
