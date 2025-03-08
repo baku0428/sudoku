@@ -85,7 +85,7 @@ python train_model.py
 ```
 
 ---
-Machine Learning ที่ใช้
+## Machine Learning ที่ใช้
 
 1. Neural Networks Basics
 
