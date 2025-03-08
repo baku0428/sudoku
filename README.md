@@ -85,6 +85,27 @@ python train_model.py
 ```
 
 ---
+Machine Learning ที่ใช้
+
+1. Neural Networks Basics
+
+-ใช้ Deep Neural Network (DNN) เพื่อทำนายค่าตัวเลขในช่องว่างของ Sudoku
+
+2. Deep Learning Basics
+
+-ใช้ Activation Function เช่น ReLU และ Softmax
+
+-ใช้ Loss Function: Categorical Crossentropy
+
+-ใช้ Optimizer: Adam
+
+3. Supervised Learning
+
+-โมเดลเรียนรู้จากชุดข้อมูล Sudoku ที่มีเฉลยแล้ว
+
+-ใช้ One-Hot Encoding ในการแปลงค่าตัวเลขของ Sudoku
+
+---
 
 ##  หมายเหตุ
 - โมเดล `sudoku_model.h5` ต้องอยู่ในไดเรกทอรีเดียวกับ `app.py`
