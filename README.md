@@ -99,12 +99,6 @@ python train_model.py
 
 -ใช้ Optimizer: Adam
 
-3. Supervised Learning
-
--โมเดลเรียนรู้จากชุดข้อมูล Sudoku ที่มีเฉลยแล้ว
-
--ใช้ One-Hot Encoding ในการแปลงค่าตัวเลขของ Sudoku
-
 ---
 
 ##  หมายเหตุ
