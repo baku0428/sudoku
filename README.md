@@ -112,3 +112,5 @@ python train_model.py
 - หากรัน `app.py` แล้วหน้าเว็บไม่แสดงผล ให้ตรวจสอบว่าติดตั้ง Flask แล้วหรือไม่
 - หากต้องการฝึกโมเดลใหม่ ให้แน่ใจว่ามีไฟล์ `sudoku.csv` และติดตั้ง TensorFlow
 - โหลดไฟล์ `sudoku.csv` ได้ใน team เนื่องจากไฟล์มีขนาดใหญ่เกินไปไม่สามาถดาวโหลดลงมาใน git ได้
+- data จาก [https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.kaggle.com%2Fdatasets%2Fbryanpark%2Fsudoku%2Fdata%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR0X0chjjRd_s6U2C67grldCYK61MpIZ9FV6cE6SAWNRG7uEiDAGKT5q1cw_aem_d4tlCrbjkFWR55FcgQDaVw&h=AT3GSbvSnCV6L5Lp7_JFBwO-uGq0w4RWiUYpMh_YV1pmh-rKAteZYClB8QEN6eQLjdvYY_r5Kf8LaF9clcDhM6tIvLdAmoRKBIgq9z-VYWPF3Tcoz4LIinH_2L2M2GkdxRzY1Ug97J-B22ELqgQQkA
+](https://www.kaggle.com/datasets/bryanpark/sudoku/data?fbclid=IwY2xjawJHR8lleHRuA2FlbQIxMAABHRfRyGONF3-zpTYLruCuV0JgrrUykhn0VXpwTpIBY1Ebu4SIMAYpPmrVzA_aem_d4tlCrbjkFWR55FcgQDaVw)
